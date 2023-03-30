@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "a8+85J4TI/HnGA3dU4Chnbp8z/fmq9tjixpLabn7ymnlyaKuKaju02XTzNO4f36E5ON0pFRz+PJIC7T6FFqJKw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\maximilian.persson3\\OneDrive - Academedia\\Documents\\Programmering\\SistaSpelet\\SistaSpelet\\SistaSpelet.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\maximilian.persson3\\.nuget\\packages\\raylib-cs\\4.2.0.2\\raylib-cs.4.2.0.2.nupkg.sha512",
+    "C:\\Users\\maximilian.persson3\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512"
+  ],
+  "logs": []
+}
