@@ -58,3 +58,5 @@ else if (currentScene == "start")
 Raylib.ClearBackground(Color.WHITE);
     
 Raylib.EndDrawing(); 
+
+//hbvdsjk whuuiseuiv iu
