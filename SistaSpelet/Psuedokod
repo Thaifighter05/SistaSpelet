@@ -1,7 +1,6 @@
 1. Skapa en menu med spelinstruktioner och en start knapp
 2. Använd raylib för att rita ut karaktär och bakgrund/bana
-3. Få karaktären att röra sig vänster och höger med en "jump" funktion.
-4. Skapa hinder som behöver sedan överkommas genom plattformar .
+3. Få karaktären att röra sig vänster och höger med en jump funktion.
+4. Skapa hinder som behöver sedan överkommas genom att hopp på plattformar .
 5. Få skärmen att röra sig med en viss hastighet åt höger och om karaktären
 hamnar utanför skärmen så är det "game over".
-6. 
