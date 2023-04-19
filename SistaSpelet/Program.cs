@@ -37,7 +37,7 @@ public class Game
     }
     public Game()
     {
-        colors.Add(0, ConsoleColor.DarkGreen);
+        colors.Add(0, ConsoleColor.DarkGreen); //Lägger till en färg på respektive nummer
         colors.Add(2, ConsoleColor.DarkGray);
         colors.Add(4, ConsoleColor.Gray);
         colors.Add(8, ConsoleColor.DarkBlue);
@@ -106,6 +106,7 @@ public class Game
             map = new int[4, 4];
             AddNew();
         }
+        //Kontroller för hur du styr och kör A eller vänster pil flyttar du vänster, D eller högerpil flyttar du höger, W eller uppåt pil flyttar du uppåt, S eller neråt pil flyttar du neråt och en reset funktion genom "R"
     }
     public void AddNew()
     {
@@ -127,6 +128,7 @@ public class Game
                 y = (int)rnd(3);
             }
             map[x, y] = (((int)rnd(4)) == 1 ? 4 : 2);
+            //Denna kod lägger till en ny slumpmässig bricka till spelplanen. Den kontrollerar först om det finns några tomma platser kvar på tavlan. Om det finns, genererar den två slumpmässiga tal för att representera raden och kolumnen i den nya brickan. Den fortsätter sedan att generera nya slumpmässiga tal tills den hittar ett tomt utrymme. Slutligen tilldelar den slumpmässigt ett värde på antingen 2 eller 4 till den nya brickan.
         }
     }
     public bool Enden()
@@ -174,13 +176,14 @@ public class Game
 
                             }
                         }
-                        catch (Exception e) { } //undantagshanteringskod
+                        catch (Exception e) { } //undantagshanteringskod, satser som anger vad som ska göras om ett undantag kastas i try -blocket. Om någon sats inom try -blocket (eller i en funktion som anropas från try -blocket) ger ett undantag, flyttas kontrollen omedelbart till catch -blocket.
                     }
                 }
                 i++;
             }
         }
         return !(posibleMoves > 0);
+        // kollar igenom alla möjliga drag (upp, ner, vänster, höger) och kontrollera för varje position på spelplanen om det finns ett tomt utrymme intill den eller en bricka med samma värde bredvid den. Om det finns några sådana mellanslag, returnerar metoden falskt (vilket betyder att spelet inte har avslutats ännu), annars returnerar det sant (vilket betyder att det inte finns några möjliga drag kvar och spelet har avslutats).
     }
     public bool Won()
     {
@@ -192,6 +195,7 @@ public class Game
             }
         }
         return false;
+        // iterera genom varje element i ett 4x4-rutnät och kontrollera om någon av dem är lika med 2048. Om den hittar en bricka med värdet 2048, så blir det "sant" , vilket indikerar att spelaren har vunnit.
     }
     public void UpdateMap()
     {
@@ -221,38 +225,25 @@ public class Game
 
                         }
                     }
-                    catch (Exception e) { } //undantagshanteringskod
+                    catch (Exception e) { } //undantagshanteringskod, satser som anger vad som ska göras om ett undantag kastas i try -blocket. Om någon sats inom try -blocket (eller i en funktion som anropas från try -blocket) ger ett undantag, flyttas kontrollen omedelbart till catch -blocket.
                 }
             }
             i++;
         }
         xDir = 0;
         yDir = 0;
+        //Metoden går igenom kartan 4 gånger, en gång för varje rad eller kolumn. Inom varje slinga, itererar den genom brickorna i den raden/kolumnen och utför en av dessa tre åtgärder, om brickan är tom (representerad av värdet 0), försöker den flytta brickan till nästa icke-tomma bricka i angiven riktning.
+        //Om nästa icke-tomma bricka i den angivna riktningen har samma värde som den aktuella brickan, slår den samman de två brickorna genom att dubbla värdet på nästa bricka och sätta värdet på den aktuella brickan till 0.
+        //Om nästa icke-tomma bricka har ett annat värde gör den ingenting.
+        //När alla iterationer är klara, återställs xDir- och yDir-variablerna till 0.
     }
 
-    private void wait(int time)
-    {
-        DateTime timeToEnd = DateTime.Now.AddSeconds(time);
-        //timeToEnd = timeToEnd.AddSeconds(time);
-        DateTime now = DateTime.Now;
-        while (timeToSring(now.Hour, now.Minute, now.Second) != timeToSring(timeToEnd.Hour, timeToEnd.Minute, timeToEnd.Second))
-        {
-            now = DateTime.Now;
-        }
-    }
-    /**
-    * Way did i make this a method?
-    */
-    private string timeToSring(int H, int M, int S)
-    {
-        return H + ":" + M + ":" + S;
-    }
+   
     public static double rnd(int max)
     {
-        DateTime time = DateTime.Now;
         return new Random().Next(max + 1);
+    // För att generera slumpmässiga tal skapar metoden en ny instans av klassen Random och anropar dess next-metod med argumentet max+1, vilket skickar tillbaka ett icke-negativt slumpmässigt heltal som är mindre än det angivna maxvärdet.
     }
-    // Koden definierar en offentlig statisk metod som kallas "rnd" som tar en heltalsparameter "max" och returnerar ett slumpmässigt dubbelvärde mellan 0 och max (inklusive) med klassen Random.
     public static string Spacing(string inData, string Max)
     {
         int spacing = Max.Length - inData.Length;
@@ -262,6 +253,7 @@ public class Game
             spacingString += " ";
         }
         return "[" + inData + spacingString + "]";
+        //Tar in två strängparametrar inData och Max. Den beräknar skillnaden mellan längden på Max och inData, skapar en strängspacingString som består av så många mellanslag och sammanfogar sedan inData och spacingString inom hakparenteser []. Den resulterande strängen returneras sedan.
     }
 }
 
