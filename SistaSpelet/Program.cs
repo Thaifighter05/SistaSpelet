@@ -39,7 +39,7 @@ public class Game
     {
         colors.Add(0, ConsoleColor.DarkGreen); //Lägger till en färg på respektive nummer
         colors.Add(2, ConsoleColor.DarkGray);
-        colors.Add(4, ConsoleColor.Gray);
+        colors.Add(4, ConsoleColor.Black);
         colors.Add(8, ConsoleColor.DarkBlue);
         colors.Add(16, ConsoleColor.Blue);
         colors.Add(32, ConsoleColor.DarkRed);
@@ -67,13 +67,12 @@ public class Game
                 {
                     Console.WriteLine("You Lost");
                 }
-                Environment.Exit(0);
             }
             if (Won())
             {
                 PrintMap();
                 Console.WriteLine("You won!");
-                Environment.Exit(0);
+
             }
             AddNew();
         }
@@ -232,7 +231,7 @@ public class Game
         }
         xDir = 0;
         yDir = 0;
-        //Metoden går igenom kartan 4 gånger, en gång för varje rad eller kolumn. Inom varje slinga, itererar den genom brickorna i den raden/kolumnen och utför en av dessa tre åtgärder, om brickan är tom (representerad av värdet 0), försöker den flytta brickan till nästa icke-tomma bricka i angiven riktning.
+        //Metoden går igenom kartan 4 gånger, en gång för varje rad eller kolumn. Inom varje slinga, itererar den genom brickorna i den raden/kolumnen och utför en av dessa tre åtgärder, om brickan är tom (värdet 0), försöker den flytta brickan till nästa icke-tomma bricka i angiven riktning.
         //Om nästa icke-tomma bricka i den angivna riktningen har samma värde som den aktuella brickan, slår den samman de två brickorna genom att dubbla värdet på nästa bricka och sätta värdet på den aktuella brickan till 0.
         //Om nästa icke-tomma bricka har ett annat värde gör den ingenting.
         //När alla iterationer är klara, återställs xDir- och yDir-variablerna till 0.
